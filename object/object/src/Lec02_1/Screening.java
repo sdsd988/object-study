@@ -1,9 +1,14 @@
-package Lec02;
+package Lec02_1;
+
+import Lec02.Customer;
+import Lec02.Money;
+import Lec02.Movie;
+import Lec02.Reservation;
 
 import java.time.LocalDateTime;
 
 public class Screening {
-    private Movie movie;
+    private Lec02.Movie movie;
     private int sequence;
     private LocalDateTime whenScreened;
 
@@ -21,11 +26,11 @@ public class Screening {
         return this.sequence == sequence;
     }
 
-    public Money getMovieFee(){
+    public Lec02.Money getMovieFee(){
         return movie.getFee();
     }
 
-    public Reservation reserve(Customer customer, int audienceCount){
+    public Lec02.Reservation reserve(Customer customer, int audienceCount){
         return new Reservation(customer, this, calculateFee(audienceCount), audienceCount);
     }
 
