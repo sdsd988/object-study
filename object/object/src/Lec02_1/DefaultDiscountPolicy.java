@@ -13,7 +13,7 @@ public abstract class DefaultDiscountPolicy implements DiscountPolicy {
     @Override
     public Money calculateDiscountAmount(Screening screening) {
         for(DiscountCondition each : conditions) {
-            if (each.isSatisfiedBy(screening)) {
+            if (each.isSatisfiedBy(Screening)) {
                 return getDiscountAmount(screening);
             }
         }
