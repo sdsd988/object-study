@@ -1,17 +1,16 @@
 package Lec02;
 
 /**
- * 예매의 역할 : ?
- *      책임 : ?
+ * refund - 환불과 관련된 정보를 가지고 있음
  */
-public class Reservation {
+public class Refund {
 
     private Customer customer;
     private Screening screening;
     private Money fee;
     private int audienceCount;
 
-    public Reservation(Customer customer, Screening screening, Money fee, int audienceCount) {
+    public Refund(Customer customer, Screening screening, Money fee, int audienceCount) {
         this.customer = customer;
         this.screening = screening;
         this.fee = fee;
