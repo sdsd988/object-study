@@ -5,7 +5,7 @@ import Lec02.Screening;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-public class PeriodCondition implements discountCondition {
+public class PeriodCondition implements DiscountCondition {
     private DayOfWeek dayOfWeek;
     private LocalTime startTime;
     private LocalTime endTime;

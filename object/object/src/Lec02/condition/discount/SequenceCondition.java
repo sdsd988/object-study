@@ -3,7 +3,7 @@ package Lec02.condition.discount;
 
 import Lec02.Screening;
 
-public class SequenceCondition implements discountCondition {
+public class SequenceCondition implements DiscountCondition {
 
     private int sequence;
 
