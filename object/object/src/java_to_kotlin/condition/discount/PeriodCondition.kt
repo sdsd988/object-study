@@ -4,14 +4,8 @@ import java_to_kotlin.Screening
 import java.time.DayOfWeek
 import java.time.LocalTime
 
-class PeriodCondition(
-    private val dayOfWeek: DayOfWeek,
-    private val startTime: LocalTime,
-    private val endTime: LocalTime
-) : discountCondition {
+class PeriodCondition(private val dayOfWeek: DayOfWeek, private val startTime: LocalTime, private val endTime: LocalTime) : DiscountCondition {
     override fun isSatisfiedBy(screening: Screening): Boolean {
-        return screening.startTime.dayOfWeek == dayOfWeek &&
-                startTime <= screening.startTime.toLocalTime() &&
-                endTime >= screening.startTime.toLocalTime()
+        return screening.startTime.dayOfWeek == dayOfWeek && startTime.compareTo(screening.startTime.toLocalTime()) <= 0 && endTime.compareTo(screening.startTime.toLocalTime()) >= 0
     }
 }

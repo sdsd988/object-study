@@ -3,7 +3,7 @@ package Lec02;
 import Lec02.policy.refund.RefundPolicy;
 
 /**
- * refundCalculate 특 : 환불과 관련된 정보를 갖고 있음
+ * refundCalculate 역할 :
  *                 책임 : 환불 금액 계산
  */
 public class RefundCalculator {
@@ -20,8 +20,8 @@ public class RefundCalculator {
     }
 
 
-    public Money calculateRefundFee(Screening screening) {
-        return refundPolicy.calculateRefundAmount(screening);
+    public Money calculateRefundFee(Refund refund) {
+        return refundPolicy.calculateRefundAmount(refund);
     }
 
 

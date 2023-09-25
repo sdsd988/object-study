@@ -14,17 +14,17 @@ import java.time.LocalDateTime;
 public class Screening {
 
     private Movie movie;
-    private RefundCalculator refundCalculate;
     private int sequence;
     private LocalDateTime whenScreened;
+    private Integer maxAudience;
+
 
     public Movie getMovie() {
         return movie;
     }
 
-    public Screening(Movie movie, RefundCalculator refundCalculate, int sequence, LocalDateTime whenScreened) {
+    public Screening(Movie movie, int sequence, LocalDateTime whenScreened) {
         this.movie = movie;
-        this.refundCalculate = refundCalculate;
         this.sequence = sequence;
         this.whenScreened = whenScreened;
     }
@@ -50,13 +50,10 @@ public class Screening {
         return movie.calculateMovieFee(this).times(audienceCount);
     }
 
+    public Money refundCalculator(Refund refund) {
 
-    public Refund refund(Customer customer, int audienceCount){
-        return new Refund(customer, this,calculateRefundFee(audienceCount),audienceCount);
+        return movie.calculateRefundFee(refund);
     }
 
-    private Money calculateRefundFee(int audienceCount){
-        return refundCalculate.calculateRefundFee(this).times(audienceCount);
 
-    }
 }
