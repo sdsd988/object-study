@@ -27,8 +27,10 @@ public class ScreeningRepository {
             }
 
         }
-         return null;
+         throw new RuntimeException("존재하지 않는 상영정보입니다.");
     }
+
+
 
     public LinkedHashMap<Long, Screening> findAll()
     {

@@ -179,7 +179,7 @@ public class AppTest {
 
         //when
 
-        Refund testRefund = new Refund(testScreening9, new AmountRefundPolicy(new TimeCondition(LocalDateTime.now())),1);
+        Refund testRefund = new Refund(testScreening9,1);
 
 
         Money refundFee1 = testRefund.calculateRefundFee(1);
@@ -198,7 +198,7 @@ public class AppTest {
 
         //when
 
-        Refund testRefund2 = new Refund(testScreening10, new AmountRefundPolicy(new TimeCondition(LocalDateTime.now())),1);
+        Refund testRefund2 = new Refund(testScreening10,1);
 
         Money refundFee2 = testRefund2.calculateRefundFee(1);
         System.out.println("테스트 : 환불 조건에 부합하면, 전액 환불 된다.");

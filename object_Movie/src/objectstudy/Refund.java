@@ -10,14 +10,13 @@ import java.time.LocalDateTime;
 public class Refund {
 
     private Screening screening;
-    private RefundPolicy refundPolicy;
     private int audienceCount;
 
-    public Refund(Screening screening,RefundPolicy refundPolicy,int audienceCount) {
+    public Refund(Screening screening,int audienceCount) {
         this.screening = screening;
-        this.refundPolicy = refundPolicy;
         this.audienceCount = audienceCount;
     }
+
 
     public Money getMovieFee(){
         return screening.getMovieFee();
@@ -29,5 +28,13 @@ public class Refund {
 
     public Money calculateRefundFee(int audienceCount){
         return screening.refundCalculator(this).times(audienceCount);
+    }
+
+    @Override
+    public String toString() {
+        return "Refund{" +
+                "screening=" + screening +
+                ", audienceCount=" + audienceCount +
+                '}';
     }
 }

@@ -18,6 +18,19 @@ public class Reservation {
         this.audienceCount = audienceCount;
     }
 
+    public Refund refund(Screening screening, int audienceCount) {
+
+        return new Refund(screening, audienceCount);
+    }
+
+    public String getCustomerName() {
+        return customer.getName();
+    }
+
+    public Screening getScreening() {
+        return screening;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +

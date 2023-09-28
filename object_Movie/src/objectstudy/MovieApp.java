@@ -4,6 +4,7 @@ import objectstudy.initializer.MovieInit;
 import objectstudy.initializer.ScreeningInit;
 import objectstudy.repository.CustomerRepository;
 import objectstudy.repository.MovieRepository;
+import objectstudy.repository.ReservationRepository;
 import objectstudy.repository.ScreeningRepository;
 
 import java.util.InputMismatchException;
@@ -16,6 +17,7 @@ public class MovieApp {
     private MovieRepository movieRepository = new MovieRepository();
     private ScreeningRepository screeningRepository = new ScreeningRepository();
     private CustomerRepository customerRepository = new CustomerRepository();
+    private ReservationRepository reservationRepository = new ReservationRepository();
 
     public void showMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -63,11 +65,24 @@ public class MovieApp {
 
                         Reservation reserve = reservationAgency.reserve(findScreening, customer, audienceCount);
 
+                        reservationRepository.save(reserve);
                         System.out.println("예매결과 출력");
                         System.out.println(reserve);
                     }
                     case 3 ->{
                         System.out.println("예매자 이름을 입력해주세요!");
+                        String customerName = scanner.next();
+
+                        Reservation refundReservation = reservationRepository.findByCustomer(customerName);
+
+                        System.out.println("환불 인원을 입력해주세요!");
+                        int audienceCount = scanner.nextInt();
+
+                        Refund refund = refundReservation.refund(refundReservation.getScreening(), audienceCount);
+
+                        reservationRepository.delete(refundReservation);
+
+                        System.out.println(refund);
 
 
                     }
@@ -91,6 +106,8 @@ public class MovieApp {
         LinkedHashMap<Long, Movie> movieData = MovieInit.createMovieData(movieApp.movieRepository);
 
         ScreeningInit.createScreeningData(movieApp.screeningRepository, movieData);
+
+
 
         movieApp.showMenu();
     }

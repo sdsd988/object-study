@@ -6,8 +6,7 @@ import java.time.LocalDateTime;
 /**
  * obectstudy.Screening 역할 : 사용자들이 예매하는 대상
  * obectstudy.Screening 책임 : 1. 예매
- *                 2. 환불
- *
+ *                            2. 환불
  */
 public class Screening {
 
@@ -41,6 +40,7 @@ public class Screening {
     public Reservation reserve(Customer customer, int audienceCount){
         return new Reservation(customer, this, calculateFee(audienceCount), audienceCount);
     }
+
 
     public Money calculateFee(int audienceCount){
 
