@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="objectstudy.MovieTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-10-05T13:26:25" hostname="jeongsang-yun-ui-MacBookAir.local" time="0.103">
+  <properties/>
+  <testcase name="할인 조건 부합하면 양적 할인 가격 적용" classname="objectstudy.MovieTest" time="0.087"/>
+  <testcase name="양적할인, 1명 이상의 인원 예매" classname="objectstudy.MovieTest" time="0.001"/>
+  <testcase name="예약 성공 테스트" classname="objectstudy.MovieTest" time="0.002"/>
+  <testcase name="예약 실패 테스트 - 상영 정보가 없으면 예약되지 않는다." classname="objectstudy.MovieTest" time="0.001"/>
+  <testcase name="할인 조건 부합하지 않으면, 할인 적용 X" classname="objectstudy.MovieTest" time="0.001"/>
+  <testcase name="할인조건 부합하면 비율할인 적용" classname="objectstudy.MovieTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
